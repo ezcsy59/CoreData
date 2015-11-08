@@ -26,40 +26,40 @@
     
     NSManagedObjectContext *context = [self managedObjectContext];
     
-//    for (int i=0; i<10; i++) {
-//    NSManagedObject *failedBankInfo = [NSEntityDescription insertNewObjectForEntityForName:@"Info"
-//                                                                                                                                   inManagedObjectContext:context];
-//    
-//    
-//    [failedBankInfo setValue:[NSString stringWithFormat:@"测试%d",i] forKey:@"name"];
-//    [failedBankInfo setValue:@"Testville" forKey:@"city"];
-//    [failedBankInfo setValue:@"Testland" forKey:@"site"];
-//    
-//    NSManagedObject *failedBankDetails = [NSEntityDescription insertNewObjectForEntityForName:@"Details"
-//                                                                                                                              inManagedObjectContext:context];
-//    [failedBankDetails setValue:[NSDate date] forKey:@"closeDate"];
-//    [failedBankDetails setValue:[NSDate date] forKey:@"updateDate"];
-//    [failedBankDetails setValue:[NSNumber numberWithInt:12345] forKey:@"zip"];
-//    [failedBankDetails setValue:failedBankInfo forKey:@"info"];
-//    [failedBankInfo setValue:failedBankDetails forKey:@"details"];
-//    
-//        
-//        NSError *error ;
-//        if (![context save:&error]) {
-//            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-//        }
-//        
-//    }
+    for (int i=0; i<2; i++) {
+   Info *failedBankInfo = [NSEntityDescription insertNewObjectForEntityForName:@"Info"
+                                                                                                                                   inManagedObjectContext:context];
+    
+    
+    [failedBankInfo setValue:[NSString stringWithFormat:@"测试新型"] forKey:@"name"];
+    [failedBankInfo setValue:@"T广州" forKey:@"city"];
+    [failedBankInfo setValue:@"市区" forKey:@"site"];
+    
+    NSManagedObject *failedBankDetails = [NSEntityDescription insertNewObjectForEntityForName:@"Details"
+                                                                                                                              inManagedObjectContext:context];
+    [failedBankDetails setValue:[NSDate date] forKey:@"closeDate"];
+    [failedBankDetails setValue:[NSDate date] forKey:@"updateDate"];
+    [failedBankDetails setValue:[NSNumber numberWithInt:12345] forKey:@"zip"];
+    [failedBankDetails setValue:failedBankInfo forKey:@"info"];
+    [failedBankInfo setValue:failedBankDetails forKey:@"details"];
+    
+        
+        NSError *error ;
+        if (![context save:&error]) {
+            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+        }
+        
+    }
     
     
     
     
     
-   NSError *error ;
+//   NSError *error ;
 //    if (![context save:&error]) {
 //        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
 //    }
-//    
+//
     
 //    
 //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
