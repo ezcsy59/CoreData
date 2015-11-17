@@ -24,32 +24,32 @@
 //    controller.managedObjectContext = self.managedObjectContext;
     
     
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
-    for (int i=0; i<2; i++) {
-   Info *failedBankInfo = [NSEntityDescription insertNewObjectForEntityForName:@"Info"
-                                                                                                                                   inManagedObjectContext:context];
-    
-    
-    [failedBankInfo setValue:[NSString stringWithFormat:@"测试新型"] forKey:@"name"];
-    [failedBankInfo setValue:@"T广州" forKey:@"city"];
-    [failedBankInfo setValue:@"市区" forKey:@"site"];
-    
-    NSManagedObject *failedBankDetails = [NSEntityDescription insertNewObjectForEntityForName:@"Details"
-                                                                                                                              inManagedObjectContext:context];
-    [failedBankDetails setValue:[NSDate date] forKey:@"closeDate"];
-    [failedBankDetails setValue:[NSDate date] forKey:@"updateDate"];
-    [failedBankDetails setValue:[NSNumber numberWithInt:12345] forKey:@"zip"];
-    [failedBankDetails setValue:failedBankInfo forKey:@"info"];
-    [failedBankInfo setValue:failedBankDetails forKey:@"details"];
-    
-        
-        NSError *error ;
-        if (![context save:&error]) {
-            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-        }
-        
-    }
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    
+//    for (int i=0; i<2; i++) {
+//   Info *failedBankInfo = [NSEntityDescription insertNewObjectForEntityForName:@"Info"
+//                                                                                                                                   inManagedObjectContext:context];
+//    
+//    
+//    [failedBankInfo setValue:[NSString stringWithFormat:@"测试新型"] forKey:@"name"];
+//    [failedBankInfo setValue:@"T广州" forKey:@"city"];
+//    [failedBankInfo setValue:@"市区" forKey:@"site"];
+//    
+//    NSManagedObject *failedBankDetails = [NSEntityDescription insertNewObjectForEntityForName:@"Details"
+//                                                                                                                              inManagedObjectContext:context];
+//    [failedBankDetails setValue:[NSDate date] forKey:@"closeDate"];
+//    [failedBankDetails setValue:[NSDate date] forKey:@"updateDate"];
+//    [failedBankDetails setValue:[NSNumber numberWithInt:12345] forKey:@"zip"];
+//    [failedBankDetails setValue:failedBankInfo forKey:@"info"];
+//    [failedBankInfo setValue:failedBankDetails forKey:@"details"];
+//    
+//        
+//        NSError *error ;
+//        if (![context save:&error]) {
+//            NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+//        }
+//        
+//    }
     
     
     
@@ -86,6 +86,11 @@
 //        }
 //    }
 
+       [MagicalRecord setupCoreDataStackWithStoreNamed:@"CoreData.sqlite"];
+//    Info *i=[Info createEntity];
+//    i.name=@"陈思宇";
+//     [[NSManagedObjectContext defaultContext] saveToPersistentStoreWithCompletion:nil];
+    
     
     
     

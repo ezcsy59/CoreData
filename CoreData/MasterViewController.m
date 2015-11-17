@@ -23,14 +23,14 @@
 
     
     AppDelegate *app=[[UIApplication sharedApplication] delegate];
-    
-    managedObjectContext=[app managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Info" inManagedObjectContext:managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSError *error;
-    self.Infos = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    self.title = @"Failed Banks";
+    self.Infos=[Info findAll];
+//    managedObjectContext=[app managedObjectContext];
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+//    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Info" inManagedObjectContext:managedObjectContext];
+//    [fetchRequest setEntity:entity];
+//    NSError *error;
+//    self.Infos = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+//    self.title = @"Failed Banks";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
