@@ -22,8 +22,24 @@
     [super viewDidLoad];
 
     
-    AppDelegate *app=[[UIApplication sharedApplication] delegate];
-    self.Infos=[Info findAll];
+//    AppDelegate *app=[[UIApplication sharedApplication] delegate];
+    self.Infos=[Info findAllWithPredicate:[NSPredicate predicateWithFormat:@"name =='陈思' OR city =='广州'"]];
+//    for(int i=0;i<_Infos.count;i++){
+//        
+//        Info *info=_Infos[i];
+//        if([info.name isEqualToString:@"陈思宇"])
+//        {
+//            info.city=@"广州";
+//            info.site=@"金沙洲";
+//            
+//        }
+//        
+//        
+//        
+//    }
+//    
+//    [self saveContext];
+    
 //    managedObjectContext=[app managedObjectContext];
 //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 //    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Info" inManagedObjectContext:managedObjectContext];
@@ -37,6 +53,22 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
+- (void)saveContext {
+    
+    //save the entity to core ddata.
+    [[NSManagedObjectContext defaultContext]saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+        if(success){
+            NSLog(@"you successfully saved your context");
+        }else if(error){
+            NSLog(@"error saving context:%@",error.description);
+        }
+    }];
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
